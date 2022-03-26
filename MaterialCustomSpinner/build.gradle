@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.library'
+}
+
+ext{
+    // Library
+    LIBRARY_NAME = 'MaterialCustomSpinner'
+    PUBLISH_GROUP_ID = 'com.github.chivorns'
+    PUBLISH_ARTIFACT_ID = LIBRARY_NAME.toLowerCase()
+    PUBLISH_VERSION = '1.5.1'
+
+    // Bintray
+    BINTRAY_REPO = 'maven'
+    LIBRARY_DESC = 'Provide with more customization for your spinner.'
+
+    // Github
+    GIT_REPO_URL = 'https://github.com/NearApps/MaterialCustomSpinner'
+    GIT_VCS_URL = GIT_REPO_URL + '.git'
+    GIT_USER_REPO_NAME = 'NearApps/MaterialCustomSpinner'
+
+    // Developer Info
+    DEVELOPER_ID = 'NearApps'
+    DEVELOPER_NAME = 'NearApps'
+    DEVELOPER_EMAIL = 'NearApps@live.com'
+
+    // Licence
+    LICENSE_NAME = 'The Apache Software License, Version 2.0'
+    LICENSE_URL = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    ALL_LICENSES = ["Apache-2.0"]
+}
+
+android {
+    compileSdk 31
+    buildToolsVersion '30.0.3'
+    defaultConfig {
+        minSdk 19
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'com.android.support:multidex:2.0.1'
+    implementation "androidx.vectordrawable:vectordrawable:1.1.0"
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
